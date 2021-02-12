@@ -17,6 +17,6 @@ const UserSchema = new mongoose.Schema(
   }
 );
 UserSchema.virtual('thumbnail_url').get(function () {
-  return `http://localhost:3000/uploads/${this.thumbnail}`;
+  return `https://powerful-fortress-29828.herokuapp.com/uploads/${this.thumbnail}`;
 });
 module.exports = mongoose.model('User', UserSchema);
