@@ -13,7 +13,6 @@ module.exports = (req, res, next) => {
   //validation of MIMETYPE
   if (!req.file.mimetype.includes('jpeg') && !req.file.mimetype.includes('png') && !req.file.mimetype.includes('jpg')) {
     fs.unlinkSync(req.file.path);
-    fs.unlinkSync(req.body);
     return res.status(400).json({
       errors: 'file not support',
     });
@@ -22,7 +21,6 @@ module.exports = (req, res, next) => {
   //validation of dimensions
   if (req.file.size > 1024 * 1024) {
     fs.unlinkSync(req.file.path);
-    fs.unlinkSync(req.body);
     return res.status(400).json({
       errors: 'File is Too large',
     });
