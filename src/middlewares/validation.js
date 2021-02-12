@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
   }
 
   //validation of dimensions
-  if (req.file.size > 4067 * 6100) {
+  if (req.file.size > 1024 * 1024) {
     fs.unlinkSync(req.file.path);
     fs.unlinkSync(req.body);
     return res.status(400).json({
